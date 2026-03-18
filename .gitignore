@@ -9,3 +9,7 @@ dist/
 htmlcov/
 saved_videos/
 checkpoints/
+eval_outputs/
+runs/
+outputs/
+logs/
