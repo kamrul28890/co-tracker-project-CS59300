@@ -115,6 +115,8 @@ A GPU is strongly recommended for using CoTracker locally.
 You can use a Pretrained Model via PyTorch Hub, as described above, or install CoTracker from this GitHub repo.
 This is the best way if you need to run our local demo or evaluate/train CoTracker.
 
+For a reproducible local setup with helper scripts, see `docs/repro_setup.md`.
+
 Ensure you have both _PyTorch_ and _TorchVision_ installed on your system. Follow the instructions [here](https://pytorch.org/get-started/locally/) for the installation.
 We strongly recommend installing both PyTorch and TorchVision with CUDA support, although for small tasks CoTracker can be run on CPU.
 

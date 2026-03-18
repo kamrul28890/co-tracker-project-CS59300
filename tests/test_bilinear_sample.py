@@ -48,4 +48,5 @@ class TestBilinearSampler(unittest.TestCase):
 
 
 # run the test
-unittest.main()
+if __name__ == "__main__":
+    unittest.main()
