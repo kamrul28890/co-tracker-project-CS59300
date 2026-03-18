@@ -393,6 +393,13 @@ Mitigation:
 - keep the extension analysis-first
 - do not promise a heavy re-training pipeline unless time clearly allows it
 
+### Risk 4: Fine-tuning paths need extra dependencies
+
+Mitigation:
+
+- `train_on_real_data.py` depends on external TAPIR/TAPNet code and checkpoints that are not installed by default
+- treat pseudo-label fine-tuning as an optional stretch goal, not the baseline plan
+
 ## What not to do
 
 - do not make full training the core project
@@ -407,4 +414,3 @@ Mitigation:
 3. Run one online and one offline demo.
 4. Set up TAP-Vid DAVIS evaluation.
 5. Decide the extension track after the first benchmark is stable.
-

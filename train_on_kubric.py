@@ -516,8 +516,10 @@ class Lite(LightningLite):
 
 
 if __name__ == "__main__":
-    signal.signal(signal.SIGUSR1, sig_handler)
-    signal.signal(signal.SIGTERM, term_handler)
+    for signame, handler in (("SIGUSR1", sig_handler), ("SIGTERM", term_handler)):
+        sig = getattr(signal, signame, None)
+        if sig is not None:
+            signal.signal(sig, handler)
     parser = argparse.ArgumentParser()
     parser.add_argument("--model_name", default="cotracker_three", help="model name")
     parser.add_argument("--restore_ckpt", help="path to restore a checkpoint")
