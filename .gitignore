@@ -13,3 +13,5 @@ eval_outputs/
 runs/
 outputs/
 logs/
+datasets/
+*.log
