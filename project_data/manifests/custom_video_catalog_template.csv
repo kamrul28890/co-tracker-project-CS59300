@@ -1,0 +1,2 @@
+video_id,source_name,source_url,license_or_terms,category,local_path,duration_seconds,resolution,notes
+example_001,repo_asset,https://github.com/facebookresearch/co-tracker/raw/refs/heads/main/assets/apple.mp4,repository asset,smoke_test,project_data/raw_videos/example_001.mp4,,,Replace with actual local path after download

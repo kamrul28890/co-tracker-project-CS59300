@@ -15,3 +15,6 @@ outputs/
 logs/
 datasets/
 *.log
+project_data/raw_videos/
+project_results/videos/
+project_results/runs/

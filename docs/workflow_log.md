@@ -108,3 +108,25 @@ This document keeps a continuous chronology of the reproduction workflow, enviro
 - Project implication:
   - this gives us a clean first online-vs-offline comparison table for the proposal and final report
   - the next step should shift from setup to analysis on custom videos and failure modes
+
+### 2026-03-18 22:50:55 -04:00
+
+- Created project-facing structure for the next phase of work:
+  - `project_data/`
+  - `project_results/`
+  - `project_scripts/`
+- Added tracked templates and summaries so the project can move from setup into analysis:
+  - `project_data/manifests/custom_video_catalog_template.csv`
+  - `project_results/tables/benchmark_summary.csv`
+  - `project_results/tables/failure_analysis_template.csv`
+- Pre-populated `project_results/tables/benchmark_summary.csv` with the completed online and offline DAVIS baselines.
+- Added documentation for video sourcing and project direction:
+  - `docs/data_sources.md`
+  - `docs/paper_summary.md`
+- Added ignore rules to prevent accidental commits of large custom video artifacts:
+  - `project_data/raw_videos/`
+  - `project_results/videos/`
+  - `project_results/runs/`
+- Outcome of this step:
+  - the repo now has a clear place for open-source videos, tracked experiment summaries, and plain-language paper notes
+  - this should make the next custom-video analysis phase much easier to execute and write up
