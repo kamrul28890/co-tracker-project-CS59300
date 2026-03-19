@@ -83,3 +83,28 @@ This document keeps a continuous chronology of the reproduction workflow, enviro
 - Reason for this change:
   - the downloaded DAVIS benchmark data are large and should remain local
   - generated console logs are workflow artifacts, not source files
+
+### 2026-03-18 20:00:31 -04:00
+
+- Ran the matching offline DAVIS baseline to complement the earlier online result:
+  - `python .\cotracker\evaluation\evaluate.py --config-name eval_tapvid_davis_first exp_dir=.\eval_outputs\tapvid_davis_first_offline dataset_root=.\datasets offline_model=True window_len=60 checkpoint=.\checkpoints\scaled_offline.pth`
+- Evaluation completed successfully and wrote:
+  - `eval_outputs/tapvid_davis_first_offline/result_eval_.json`
+- Runtime recorded in the result JSON:
+  - `505.74844765663147` seconds
+- Offline baseline metrics:
+  - `occlusion_accuracy`: `0.9173205871355311`
+  - `average_jaccard`: `0.6480599112594341`
+  - `average_pts_within_thresh`: `0.7688051147336501`
+- Online baseline metrics from the earlier run for direct comparison:
+  - `occlusion_accuracy`: `0.9088604772803294`
+  - `average_jaccard`: `0.6444301091643813`
+  - `average_pts_within_thresh`: `0.771162818724843`
+  - `time`: `62.29804277420044` seconds
+- Immediate comparison takeaway:
+  - offline performed slightly better on `average_jaccard`
+  - online performed slightly better on `average_pts_within_thresh`
+  - offline was dramatically slower on this machine and configuration
+- Project implication:
+  - this gives us a clean first online-vs-offline comparison table for the proposal and final report
+  - the next step should shift from setup to analysis on custom videos and failure modes
