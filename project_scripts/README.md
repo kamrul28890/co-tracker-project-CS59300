@@ -14,3 +14,17 @@ For now, the core commands are:
 python .\cotracker\evaluation\evaluate.py --config-name eval_tapvid_davis_first exp_dir=.\eval_outputs\tapvid_davis_first_online dataset_root=.\datasets checkpoint=.\checkpoints\scaled_online.pth
 python .\cotracker\evaluation\evaluate.py --config-name eval_tapvid_davis_first exp_dir=.\eval_outputs\tapvid_davis_first_offline dataset_root=.\datasets offline_model=True window_len=60 checkpoint=.\checkpoints\scaled_offline.pth
 ```
+
+For project data collection, use:
+
+```powershell
+python .\project_scripts\collect_project_data.py
+```
+
+That script:
+
+- copies the official CoTracker repository assets into `project_data/raw_videos/official_assets/`
+- verifies the local TAP-Vid DAVIS benchmark payload
+- downloads the CoTracker3_Kubric dataset card and one official shard sample
+- downloads a curated public-domain Internet Archive video set
+- writes `project_data/manifests/data_inventory.csv`

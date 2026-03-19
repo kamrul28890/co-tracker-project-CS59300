@@ -91,6 +91,26 @@ Why use them:
 Important note:
 
 - always check the license and terms on the source page before reusing clips in a report or presentation
+- in this Windows terminal environment, scripted bulk downloads from Pexels and Pixabay ran into Cloudflare interstitial pages, so the reproducible batch collection path was switched to Internet Archive public-domain items
+
+## Current collected open-video set
+
+The current reproducible open-video batch uses ten public-domain Internet Archive items:
+
+- `Design for Dreaming`
+- `[Willie Shoemaker at Golden Gate Fields]`
+- `Tip-Tops in Peppyland, The`
+- `Trading Centers of the Pacific Coast`
+- `Street of Memory`
+- `Aurora Stunt and Drag Race Set Commercial`
+- `Park Conscious`
+- `Case of Spring Fever, A`
+- `122 Eyes`
+- `Sleep for Health`
+
+Their local inventory is written to:
+
+- `project_data/manifests/data_inventory.csv`
 
 ## Recommendation
 

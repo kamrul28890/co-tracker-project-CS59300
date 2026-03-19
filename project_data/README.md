@@ -14,6 +14,12 @@ Do not commit large raw videos here. Raw clips should go in:
 
 That path is intentionally ignored by Git.
 
+Large downloaded dataset cache files should stay in:
+
+- `project_data/kubric_cache/`
+
+That path is also intentionally ignored by Git.
+
 Recommended source priority:
 
 1. repository assets for quick smoke tests
@@ -25,3 +31,10 @@ See:
 
 - [docs/data_sources.md](/d:/Purdue/Courses/02.%20Spring%202026%20CS%2059300-CVD/Project/co-tracker/docs/data_sources.md)
 - [project_data/manifests/custom_video_catalog_template.csv](/d:/Purdue/Courses/02.%20Spring%202026%20CS%2059300-CVD/Project/co-tracker/project_data/manifests/custom_video_catalog_template.csv)
+- [project_data/manifests/data_inventory.csv](/d:/Purdue/Courses/02.%20Spring%202026%20CS%2059300-CVD/Project/co-tracker/project_data/manifests/data_inventory.csv)
+
+For a reproducible collection pass, run:
+
+```powershell
+python .\project_scripts\collect_project_data.py
+```

@@ -130,3 +130,64 @@ This document keeps a continuous chronology of the reproduction workflow, enviro
 - Outcome of this step:
   - the repo now has a clear place for open-source videos, tracked experiment summaries, and plain-language paper notes
   - this should make the next custom-video analysis phase much easier to execute and write up
+
+### 2026-03-18 23:24:28 -04:00
+
+- Resumed project data collection in the requested priority order:
+  - official repository assets
+  - TAP-Vid DAVIS
+  - CoTracker3 broader data
+  - open-source custom videos
+- Added a reproducible collection script:
+  - `project_scripts/collect_project_data.py`
+- Expanded project-side data documentation so the collection process is easier to rerun:
+  - `project_data/README.md`
+  - `project_scripts/README.md`
+  - `docs/data_sources.md`
+- Completed the official repository asset copy into `project_data/raw_videos/official_assets/`:
+  - `apple.mp4`
+  - `apple_mask.png`
+  - `bmx-bumps.gif`
+- Re-verified that TAP-Vid DAVIS is already available locally and ready for evaluation:
+  - `datasets/tapvid_davis/tapvid_davis.pkl`
+  - size confirmed in the inventory: `2,481,403,560` bytes
+- Kept the broader CoTracker-side data path reproducible by caching:
+  - `project_data/kubric_cache/CoTracker3_Kubric_README.md`
+  - `project_data/kubric_cache/0000.tar.gz`
+- Reconfirmed the extracted official CoTracker3_Kubric sample:
+  - `project_data/raw_videos/kubric_sample/0000/`
+- Important implementation note about the Kubric shard:
+  - the extracted sample is not a ready-made MP4-style video folder
+  - the shard contains arrays and annotations such as trajectories, visibility, depth, and metadata
+  - the official dataset loader expects a dataset layout with rendered `frames/` plus sequence annotations, so this shard should be treated as a broader-data sample rather than a drop-in demo video
+- For the open custom-video collection, reproducible scripted downloads from Pexels and Pixabay were not used because they returned Cloudflare interstitial pages in this terminal environment.
+- Switched the reproducible batch collection path to public-domain Internet Archive items and downloaded ten videos into:
+  - `project_data/raw_videos/internet_archive/`
+- Downloaded Internet Archive set:
+  - `Designfo1956_512kb.mp4`
+  - `WillieSh1950_512kb.mp4`
+  - `TipTopsi1934_512kb.mp4`
+  - `TradingC1947_512kb.mp4`
+  - `Streetof1937_512kb.mp4`
+  - `aurora_drag_race_set_512kb.mp4`
+  - `ParkCons1938_512kb.mp4`
+  - `CaseofSp1940_512kb.mp4`
+  - `122Eyes1950_512kb.mp4`
+  - `Sleepfor1950_512kb.mp4`
+- Aggregate size of the downloaded Internet Archive video set:
+  - `327,351,932` bytes
+- Wrote the tracked inventory manifest:
+  - `project_data/manifests/data_inventory.csv`
+- Outcome of this step:
+  - the repo now has a reproducible project-data collection script
+  - the requested data tiers are all represented locally
+  - we have a clean, licensed, and tracked custom-video set ready for qualitative analysis
+
+### 2026-03-18 23:25:25 -04:00
+
+- Tightened repository hygiene after the data collection pass.
+- Updated `.gitignore` to ignore:
+  - `project_data/kubric_cache/`
+- Reason for this change:
+  - the local CoTracker3_Kubric shard cache is large and should remain a local download artifact
+  - the tracked manifest and workflow log already preserve the reproducible record of what was downloaded

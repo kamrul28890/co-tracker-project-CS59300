@@ -16,5 +16,6 @@ logs/
 datasets/
 *.log
 project_data/raw_videos/
+project_data/kubric_cache/
 project_results/videos/
 project_results/runs/
