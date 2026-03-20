@@ -28,3 +28,16 @@ That script:
 - downloads the CoTracker3_Kubric dataset card and one official shard sample
 - downloads a curated public-domain Internet Archive video set
 - writes `project_data/manifests/data_inventory.csv`
+
+For batch inference on the collected videos, use:
+
+```powershell
+python .\project_scripts\batch_run_collected_videos.py
+```
+
+That script:
+
+- scans `project_data/raw_videos/official_assets/` and `project_data/raw_videos/internet_archive/`
+- runs CoTracker in online and offline modes on a deterministic clip from each video
+- saves rendered outputs to `project_results/videos/<run_name>/`
+- writes tracked CSV summaries to `project_results/tables/`

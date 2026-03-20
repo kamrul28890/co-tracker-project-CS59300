@@ -191,3 +191,43 @@ This document keeps a continuous chronology of the reproduction workflow, enviro
 - Reason for this change:
   - the local CoTracker3_Kubric shard cache is large and should remain a local download artifact
   - the tracked manifest and workflow log already preserve the reproducible record of what was downloaded
+
+### 2026-03-20 02:00:30 -04:00
+
+- Started the first batch custom-video inference pass on the collected project videos.
+- Added a project-side batch runner:
+  - `project_scripts/batch_run_collected_videos.py`
+- Updated project readmes so the new run path is documented:
+  - `project_scripts/README.md`
+  - `project_results/README.md`
+- Batch runner scope for this pass:
+  - scanned `project_data/raw_videos/official_assets/`
+  - scanned `project_data/raw_videos/internet_archive/`
+  - skipped non-video files automatically by extension
+  - ran both `online` and `offline` CoTracker3 modes
+  - used `grid_size=10`
+- Deterministic clip rule used for this run:
+  - short repository demo clips were processed from frame `0`
+  - long Internet Archive videos were limited to `180` frames
+  - long-video clips started at `10%` into the source video to reduce title-card bias
+- Output layout for this run:
+  - rendered videos: `project_results/videos/batch_collected_20260320/`
+  - tracked run summary: `project_results/tables/batch_collected_20260320_summary.csv`
+  - tracked failure-analysis seed table: `project_results/tables/batch_collected_20260320_failure_analysis.csv`
+- Execution outcome:
+  - completed jobs: `24 / 24`
+  - device used: `cuda`
+  - no inference jobs failed
+- Runtime summary from the tracked CSV:
+  - online runs: `12`, total `2325.727` seconds, average `193.811` seconds
+  - offline runs: `12`, total `847.335` seconds, average `70.611` seconds
+- Interpretation note:
+  - for these short fixed-length qualitative clips, the offline path was faster on average than the online path on this machine
+  - this differs from the earlier full-DAVIS benchmark behavior and is worth mentioning later as an implementation/configuration observation rather than a universal claim
+- Non-blocking warnings observed during the batch run:
+  - the same `torch.load(..., weights_only=False)` future warning appeared during checkpoint loading
+  - `imageio` resized the rendered apple output height slightly for codec compatibility because the padded frame size was not divisible by `16`
+- Outcome of this step:
+  - we now have a full first-pass custom-video output set for qualitative inspection
+  - the failure-analysis table is seeded with direct links to every rendered output
+  - the project has moved beyond setup into repeatable qualitative experimentation
